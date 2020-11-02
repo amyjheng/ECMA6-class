@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="info"></div>
+    <script>
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = event => {
+            // console.log(event);
+            console.log(xhr.readyState, xhr.status, xhr.statusText, xhr.responseText);
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                info.innerHTML = xhr.responseText;
+            }
+        }
+
+        xhr.open('GET', 'data/test01.txt');
+        xhr.send();
+
+    </script>
+</body>
+
+</html>

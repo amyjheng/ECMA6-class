@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="info"></div>
+
+    <script>
+        const info = document.querySelector('#info');
+
+        const data1 = {
+            name: 'Bill',
+            age: 25,
+            gender: 'male'
+        };
+        const data2 = {
+            name: 'COCO',
+            age: 30,
+            gender: 'Female'
+        };
+
+        let { name, age } = data1;
+        console.log(name, age);
+        ({ name, age } = data2);
+        console.log(name, age);
+
+        let { name: myName, age: myAge } = data1;
+        console.log(myName, myAge);
+
+        const data3 = { ...data1 }; //淺層複製
+        const data4 = data1;
+
+        data1.name = 'Apple';
+        console.log('data1:', data1);
+        console.log('data3:', data3);
+        console.log('data4:', data4);
+    </script>
+</body>
+
+</html>

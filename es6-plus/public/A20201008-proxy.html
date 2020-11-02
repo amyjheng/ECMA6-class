@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="info"></div>
+
+    <script>
+        const info = document.querySelector('#info');
+
+        const myTarget = {
+            name: 'Bill',
+            age: 25
+        };
+
+        const myHandler = {
+            get: function (target, prop) {
+                console.log(target, prop);
+                return target[prop];
+            },
+            set: function (target, prop, value) {
+                console.log(target, prop, value);
+                target[prop] = value;
+            }
+        }
+
+        const proxy = new Proxy(myTarget, myHandler);
+
+        const a = proxy.age;
+        console.log('a: ', a);
+        proxy.age = 30;
+    </script>
+</body>
+
+</html>

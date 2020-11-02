@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="info"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+
+        axios.get('data/test01.txt')
+            .then(r => {
+                console.log(r);
+                info.innerHTML = r.data;
+            });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="info"></div>
+
+    <script>
+        const a = { name: 'Aaron', age: 30 };
+        const a2 = { age: 30, name: 'Aaron' };
+        const b = { name: 'Bill', age: 23 };
+        const data = new Map();
+
+        data.set(a, 123);
+        data.set(b, 456);
+        data.set(b, 789);
+        data.set(a2, { hi: 'hello' });
+        data.set({}, 5);
+        data.set({}, 6);
+
+
+        info.innerHTML += data.size + '<br>';
+        info.innerHTML += data.get(b) + '<br>';
+        data.forEach((el, key) => {
+            console.log(el, key);
+        })
+
+    </script>
+</body>
+
+</html>

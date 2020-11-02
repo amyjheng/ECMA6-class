@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="info"></div>
+    <script>
+
+        const info = document.querySelector('#info');
+
+        const promiseFunc = () => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(Math.floor(100 * Math.random()));
+                }, 1000 * Math.random());
+            });
+        };
+
+
+        async function myAsync() {
+            const r1 = await promiseFunc();
+            console.log({ r1 });
+            const r2 = await promiseFunc();
+            console.log({ r2 });
+            const r3 = await promiseFunc();
+            console.log({ r3 });
+        }
+        myAsync();
+
+        (async () => {
+            const r1a = await promiseFunc();
+            console.log({ r1a });
+            const r2a = await promiseFunc();
+            console.log({ r2a });
+            const r3a = await promiseFunc();
+            console.log({ r3a });
+        })();
+
+        (async () => {
+            let n = 1;
+            for (let i = 0; i < 10; i++, n++) {
+                const r1a = await promiseFunc();
+                console.log(n, r1a);
+            }
+        })();
+        ~async function () {
+
+            console.log('開始抓氣象');       // 先顯示「開始抓氣象」
+            await fetch('https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/O-A0003-001?Authorization=CWB-AAE13DBF-03F8-4645-B240-3D0091E31DA2&downloadType=WEB&format=JSON')  // 帶有 await 的 fetch
+                .then(res => {
+                    return res.json();
+                }).then(result => {
+                    let city = result.cwbopendata.location[14].parameter[0].parameterValue;
+                    let temp = result.cwbopendata.location[14].weatherElement[3].elementValue.value;
+                    console.log(`${city}的氣溫為 ${temp} 度 C`);
+                });
+            console.log('總算結束了');       // 抓完氣象之後再顯示「總算結束了」
+        }();
+
+
+    </script>
+</body>
+
+</html>

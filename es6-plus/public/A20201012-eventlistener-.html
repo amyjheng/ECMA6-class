@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+    <button id="btn">click</button>
+    <br>
+    <button id="btn2">click2</button>
+    <br>
+    <div id="info"></div>
+    <script>
+        let n = 0;
+        const info = document.querySelector('#info');
+        const btn = document.querySelector('#btn');
+        const btn2 = document.querySelector('#btn2');
+
+        for (let i = 0; i < 5; i++) {
+            btn.addEventListener('click', function (event) {
+                n++
+                info.innerHTML += n + '<br>';
+            });
+        }
+        
+        
+        // ---------------------------------------------------
+        const handler = function (event) {
+            n++
+            info.innerHTML += n + '<br>';
+        };
+        for (let i = 0; i < 5; i++) {
+            btn2.addEventListener('click', handler);
+        }
+
+    </script>
+</body>
+
+</html>

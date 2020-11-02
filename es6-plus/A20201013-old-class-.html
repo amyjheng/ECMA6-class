@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="info"></div>
+    <script>
+        // ES 5 之前
+        function MyClass(name, age) {
+            this.name = name || 'none';
+            this.age = age || 20;
+            this.getSomething = function () {
+            }
+        }
+
+        MyClass.prototype.getData = function () {
+            return this.name + ':' + this.age;
+        }
+
+
+        var myInstance = new MyClass('Peter');
+
+        document.getElementById('info').innerHTML = myInstance.name + '<br>' +
+            myInstance.getData();
+
+    </script>
+</body>
+
+</html> 

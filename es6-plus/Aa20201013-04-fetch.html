@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="info"></div>
+    <script>
+
+        fetch('data/test01.txt')
+            .then(response => {
+                return response.text();
+            })
+            .then(txt => {
+                info.innerHTML = txt;
+            })
+
+
+    </script>
+</body>
+
+</html>

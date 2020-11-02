@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="info"></div>
+    <script>
+        const info = document.querySelector('#info');
+        const f1 = (a = 7) => a * a;
+        const f1a = function (a = 7) {
+            return a * a;
+        };
+        const obj = {
+            v: this,
+            f3: () => { return this },
+            f4: function () { return this },
+            f5() {
+                return this;
+            }
+        };
+        console.log(obj.f3());
+        console.log(obj.f4());
+        console.log(obj.f5());
+    </script>
+
+</body>
+
+</html>

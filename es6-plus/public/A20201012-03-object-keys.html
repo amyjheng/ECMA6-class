@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="info"></div>
+
+    <script>
+        const a = { name: 'Aaron', age: 30 };
+        const a2 = { age: 30, name: 'Aaron' };
+        const b = { name: 'Bill', age: 23 };
+        const data = {};
+
+        data[JSON.stringify(a)] = 123;
+        data[JSON.stringify(b)] = 456;
+        data[JSON.stringify(a2)] = 789;
+
+        info.innerHTML = data[JSON.stringify(a)];
+    </script>
+</body>
+
+</html>
